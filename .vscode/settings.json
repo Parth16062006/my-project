@@ -1,0 +1,19 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive"
+    ,
+    // Optional: requires the "emeraldwalk.runonsave" extension
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.(java|jsp|xml|properties|html|css|js)$",
+                "isAsync": true,
+                "cmd": "mvn -DskipTests clean package && robocopy \"${workspaceFolder}\\target\\${config:onlineAuction.deploy.explodedDir}\" \"${config:onlineAuction.deploy.tomcatPath}\\webapps\\${config:onlineAuction.deploy.contextName}\" /E /COPY:DAT /XO /FFT /Z /W:2 /R:2 /NP /NFL /NDL"
+            }
+        ]
+    }
+    ,
+    // Workspace settings used by tasks.json
+    "onlineAuction.deploy.tomcatPath": "C:\\Users\\siddh\\.rsp\\redhat-community-server-connector\\runtimes\\installations\\tomcat-11.0.0-M6_3\\apache-tomcat-11.0.0-M6",
+    "onlineAuction.deploy.explodedDir": "Online-Auction-System-1.0.0",
+    "onlineAuction.deploy.contextName": "Online-Auction-System"
+}
